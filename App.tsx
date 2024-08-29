@@ -38,7 +38,7 @@ function App(): React.JSX.Element {
   }, []);
 // handle login with biometrics
 const loginroutine = async () => {
-  const username = 'a2244220';
+  const username = '';
   const password = '';
   console.log("in the routine");
 
@@ -70,7 +70,7 @@ const loginroutine = async () => {
 
 const handleLoginWithBiometrics = async () => {
   console.log("handle login with biometrics")
-  //const userID = 'a2244220'
+  
   const userID = user;
   console.log("userid: ", userID)
   const success = await loginWithBiometrics(userID);
