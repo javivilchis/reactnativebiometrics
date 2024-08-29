@@ -68,13 +68,17 @@ const loginroutine = async () => {
 };
 
 
-const handleLoginWithBiometrics = async () => {
+const handleLoginWithBiometrics = async (dispatch:string) => {
   console.log("handle login with biometrics")
-  
+
+  const user = "someUserID";
   const userID = user;
-  console.log("userid: ", userID)
-  const success = await loginWithBiometrics(userID);
-  console.log("SUCCESS: ", JSON.stringify(success, null, 2))
+  console.log("userid: ", userID);
+
+  const success = await loginWithBiometrics(dispatch,userID);
+
+  console.log("SUCCESS: ", JSON.stringify(success, null, 2));
+  
   if(success){
     Alert.alert("success", 'biometrics login successful')
   } else {
@@ -156,7 +160,7 @@ const handleLoginWithBiometrics = async () => {
           </View>
           <View style={{backgroundColor: 'black', marginVertical:5 ,padding: 10}}>
           <Button
-          onPress={handleLoginWithBiometrics}
+          onPress={() => handleLoginWithBiometrics}
           title="Login with Biometrics"
           color='#2196F3'
           accessibilityLabel="login with biometrics"
