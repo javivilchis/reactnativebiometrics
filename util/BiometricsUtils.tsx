@@ -120,15 +120,16 @@ export const loginWithBiometrics = async (dispatch:string,userID: string) => {
 export const loginPrompt = async ()=>{
   
  
-  console.log("JSON RESPONSE: ", JSON.stringify(rnBiometrics, null, 2))
+  //console.log("JSON RESPONSE: ", JSON.stringify(rnBiometrics, null, 2))
   try {
     rnBiometrics.simplePrompt({promptMessage: 'Authenticate to continue'})
     .then((resultObject) => {
       const { success } = resultObject
 
       if (success) {
-        console.log("JSON RESPONSE: ", JSON.stringify(resultObject, null, 2))
-        console.log('successful biometrics provided')
+        //console.log("JSON RESPONSE: ", JSON.stringify(resultObject, null, 2))
+        console.log('successfully authenticated with biometrics provided')
+        Alert.alert("successfully authenticated with biometrics provided")
       } else {
         console.log('user cancelled biometric prompt')
       }
